@@ -23,6 +23,8 @@ public class App {
         Product shippableMilk = new ShippableProductDecorator(milk, 0.5); // Shippable product with weight 0.5kg
         Product eBook = new SimpleProduct(3,"E-Book", 15.0, 100); // Non-shippable product
         Product book = new ShippableProductDecorator(new SimpleProduct(4,"Book", 20.0, 50), 1.0); // Shippable product
+        Product noStock = new SimpleProduct(5,"No Stock Product", 10.0, 0); // Product with no stock
+        Product insufficientBalance = new SimpleProduct(6,"Insufficient Balance Product", 3000.0, 1); // Product with price greater than customer's balance
         // Add products to the cart
         try{
             cart.addProduct(laptop, 1);
@@ -30,9 +32,17 @@ public class App {
             cart.addProduct(shippableMilk, 1);
             cart.addProduct(eBook, 3); // E-Book is not shippable, but can be added to the cart
             cart.addProduct(book, 1);
+            cart.addProduct(noStock, 1);
         } catch (IllegalArgumentException e) {
             System.out.println("Error adding product: " + e.getMessage());
         }
+
+        // UNCOMMENT THE FOLLOWING LINES TO TEST THE EXCEPTION OF INSUFFICENT BALANCE 
+        // try{
+        //     cart.addProduct(insufficientBalance, 1);
+        // }catch(IllegalArgumentException e) {
+        //     System.out.println("Error adding product: " + e.getMessage());
+        // }
 
         // Create a checkout service
         CheckoutService checkoutService = new CheckoutService(cart, customer);

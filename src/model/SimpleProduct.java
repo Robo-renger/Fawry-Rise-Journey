@@ -17,7 +17,7 @@ public class SimpleProduct implements Product {
     }
 
     public void setId(int id) {
-        if (id <= 0) {
+        if (id < 0) {
             throw new IllegalArgumentException("ID must be a positive integer.");
         }
         this.id = id;
