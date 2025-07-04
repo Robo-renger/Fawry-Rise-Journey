@@ -6,10 +6,10 @@ public class SimpleProduct implements Product {
     private double price;
     private int stock;
     public SimpleProduct(int id, String name, double price, int stock) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.stock = stock;
+        setId(id);
+        setName(name);
+        setPrice(price);
+        setStock(stock);;
     }
 
     public int getId() {
@@ -17,6 +17,9 @@ public class SimpleProduct implements Product {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID must be a positive integer.");
+        }
         this.id = id;
     }
 
@@ -33,14 +36,21 @@ public class SimpleProduct implements Product {
     }
 
     public void setPrice(double price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative.");
+        }
         this.price = price;
     }
 
     public int getStock() {
+        
         return stock;
     }
 
     public void setStock(int stock) {
+        if (stock < 0) {
+            throw new IllegalArgumentException("Stock cannot be negative.");
+        }
         this.stock = stock;
     }
 }

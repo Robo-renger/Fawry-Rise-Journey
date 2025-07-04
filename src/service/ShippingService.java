@@ -64,6 +64,6 @@ public class ShippingService {
         double weight = calculateShippableTotalWeight();
 
         // Example shipping cost calculation based on weight and expirable products
-        return BASE_SHIPPING_COST + weight * PER_KG_PRICE + calculateTotalPriceOfExpirableShippableProducts();
+        return (weight > 0 ? BASE_SHIPPING_COST : 0) + weight * PER_KG_PRICE + calculateTotalPriceOfExpirableShippableProducts();
     }
 }

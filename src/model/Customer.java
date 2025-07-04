@@ -7,10 +7,10 @@ public class Customer {
     private double balance;
 
     public Customer(String name, String email, String phoneNumber, double balance) {
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.balance = balance;
+        setName(name);
+        setEmail(email);
+        setPhoneNumber(phoneNumber);
+        setBalance(balance);
     }
 
     public String getName() {
@@ -35,6 +35,10 @@ public class Customer {
         this.email = email;
     }
     public void setBalance(double balance) {
+        // Assuming no credit system, balance cannot be negative
+        if (balance < 0) {
+            throw new IllegalArgumentException("Balance cannot be negative.");
+        }
         this.balance = balance;
     }
     public void setPhoneNumber(String phoneNumber) {

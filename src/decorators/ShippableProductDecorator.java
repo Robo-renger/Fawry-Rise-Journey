@@ -9,6 +9,9 @@ public class ShippableProductDecorator implements Product, Shippable {
 
     public ShippableProductDecorator(Product product, double weight) {
         this.product = product;
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Weight must be greater than zero.");
+        }
         this.weight = weight;
     }
 

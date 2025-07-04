@@ -9,9 +9,12 @@ public class ExpirableProductDecorator implements Product, Expirable {
 
     public ExpirableProductDecorator(Product product, LocalDate expiryDate) {
         this.product = product;
+        if (expiryDate == null || expiryDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Expiry date must be a future date.");
+        }
         this.expiryDate = expiryDate;
     }
-
+    
     @Override
     public boolean isExpired() {
         return LocalDate.now().isAfter(expiryDate);
