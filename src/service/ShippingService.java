@@ -62,9 +62,6 @@ public class ShippingService {
     public double calculateShippingCost() {
         filterExpirableProducts();
         double weight = calculateShippableTotalWeight();
-        if (weight <= 0) {
-            throw new IllegalArgumentException("Weight must be greater than zero.");
-        }
 
         // Example shipping cost calculation based on weight and expirable products
         return BASE_SHIPPING_COST + weight * PER_KG_PRICE + calculateTotalPriceOfExpirableShippableProducts();
