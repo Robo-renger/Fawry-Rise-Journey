@@ -2,7 +2,7 @@
 
 This project implements a modular shopping cart system in Java, demonstrating the use of **decorator pattern**, **interface-driven design**, and **service abstraction** for checkout and shipping logic.
 
-## Key Features & Smart Parts
+## Key Features
 
 ### 1. Decorator Pattern for Product Features
 
