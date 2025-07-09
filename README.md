@@ -69,5 +69,5 @@ double shippingCost = shippingService.calculateShippingCost();
 - Service classes encapsulate business logic for checkout and shipping, promoting single responsibility
 
 #
-![Screenshot](images/image.png)
+![Screenshot](image.png)
 
